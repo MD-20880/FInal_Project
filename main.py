@@ -3,20 +3,25 @@
 import gpiozero as io
 from sense_hat import SenseHat
 from time import sleep
+from time import time
+
 
 sense = SenseHat()
-while True: 
-    X = [255,255,255]
-    O = [0,0,0]
-    question_mark = [
-O, O, O, X, X, O, O, O,
-O, O, X, O, O, X, O, O,
-O, O, O, O, O, X, O, O,
-O, O, O, O, X, O, O, O,
-O, O, O, X, O, O, O, O,
-O, O, O, X, O, O, O, O,
-O, O, O, O, O, O, O, O,
-O, O, O, X, O, O, O, O
-]
-    sense.set_pixels(question_mark)
+
+
+# flash LED panel for n seconds
+def flashing(n : int) -> None:
+    white = [[255,255,255] for i in range(64)]
+    black = [[0,0,0] for i in range(64)]
+    start_time = time()
+    while time() - start_time < n:
+        sense.set_pixels(white)
+        sleep(0.1)
+        sense.set_pixels(black)
+        sleep(0.1)
+    sense.clear()
+
+while True:
+    sleep(5)
+    flashing(1)    
 
