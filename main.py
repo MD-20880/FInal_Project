@@ -21,33 +21,9 @@ def flashing(n : int) -> None:
     sense.clear()
 
 
-board = [[0,0,0] for i in range(64)]
-WIDTH = 8
-HEIGHT = 8
-curposx = 4
-curposy = 4
-board[curposy*WIDTH+curposx] = [255,255,255]
-sense.set_pixels(board)
-    
-
 while True:
-    
-    for event in sense.stick.get_events():
-        sleep(0.3)
-        board[curposy*WIDTH+curposx] = [0,0,0]
-        if event.direction == 'down':
-            curposy += 1
-        elif event.direction == 'up':
-            curposy -= 1
-        elif event.direction == 'left':
-            curposx -= 1
-        elif event.direction == 'right':
-            curposx += 1
-        curposx = curposx % 8
-        curposy = curposy % 8
-        board[curposy*WIDTH+curposx] = [255,255,255]
-        sense.clear()
-        sense.set_pixels(board)
+    sense.show_message("Hello World!", text_colour=[255,0,0], back_colour=[0,0,255])
+        
 
 # led1 = io.LED(17)
 # led2 = io.LED(27)
