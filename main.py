@@ -9,18 +9,29 @@ from time import time
 sense = SenseHat()
 
 
-# flash LED panel for n seconds
-def flashing(n : int) -> None:
-    white = [[255,255,255] for i in range(64)]
-    black = [[0,0,0] for i in range(64)]
-    start_time = time()
-    while time() - start_time < n:
-        sense.set_pixels(white)
-        sleep(0.1)
-        sense.clear()
-    sense.clear()
+# # flash LED panel for n seconds
+# def flashing(n : int) -> None:
+#     white = [[255,255,255] for i in range(64)]
+#     black = [[0,0,0] for i in range(64)]
+#     start_time = time()
+#     while time() - start_time < n:
+#         sense.set_pixels(white)
+#         sleep(0.1)
+#         sense.clear()
+#     sense.clear()
+
+# while True:
+#     sleep(5)
+#     flashing(1)    
+
+
+led1 = io.LED(17)
+led2 = io.LED(27)
 
 while True:
-    sleep(5)
-    flashing(1)    
-
+    led1.on()
+    sleep(1)
+    led1.off()
+    led2.on()
+    sleep(1)
+    led2.off()
