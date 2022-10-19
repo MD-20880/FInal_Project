@@ -5,7 +5,7 @@ import sense_hat as sense
 from time import sleep
 
 led1 = io.LED(17)
-led2 = io.LED(2)
+led2 = io.LED(27)
 
 while True: 
     led1.on()
