@@ -20,14 +20,17 @@ def flashing(n : int) -> None:
         sense.clear()
     sense.clear()
 
+
+board = [[0,0,0] for i in range(64)]
+WIDTH = 8
+HEIGHT = 8
+curposx = 4
+curposy = 4
+board[curposy*WIDTH+curposx] = [255,255,255]
+sense.set_pixels(board)
+    
+
 while True:
-    board = [[0,0,0] for i in range(64)]
-    WIDTH = 8
-    HEIGHT = 8
-    curposx = 4
-    curposy = 4
-    board[curposy*WIDTH+curposx] = [255,255,255]
-    sense.set_pixels(board)
     
     for event in sense.stick.get_events():
         if event.direction == 'up':
