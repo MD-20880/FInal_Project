@@ -29,13 +29,13 @@ while True:
     board[curposy*WIDTH+curposx] = [255,255,255]
     
     for event in sense.stick.get_events():
-        if event[0].direction == 'up':
+        if event.direction == 'up':
             curposy += 1
-        elif event[0].direction == 'down':
+        elif event.direction == 'down':
             curposy -= 1
-        elif event[0].direction == 'left':
+        elif event.direction == 'left':
             curposx -= 1
-        elif event[0].direction == 'right':
+        elif event.direction == 'right':
             curposx += 1
 
         curposx = curposx % 8
