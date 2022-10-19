@@ -21,8 +21,8 @@ def flashing(n : int) -> None:
     sense.clear()
 
 while True:
-    sleep(5)
-    flashing(1)    
+    for event in sense.stick.get_events():
+        print(event.direction, event.action)  
 
 
 # led1 = io.LED(17)
