@@ -17,8 +17,7 @@ def flashing(n : int) -> None:
     while time() - start_time < n:
         sense.set_pixels(white)
         sleep(0.1)
-        sense.set_pixels(black)
-        sleep(0.1)
+        sense.clear()
     sense.clear()
 
 while True:
