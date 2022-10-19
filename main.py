@@ -48,9 +48,6 @@ while True:
     print("Accelerometer: {}".format(accel))
     
 
-    # flash LED panel for 1 second
-    flashing(1)
-
     # wait 1 second
     sleep(1)
     
