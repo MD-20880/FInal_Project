@@ -45,6 +45,7 @@ while True:
         curposx = curposx % 8
         curposy = curposy % 8
         board[curposy*WIDTH+curposx] = [255,255,255]
+        sense.clear()
         sense.set_pixels(board)
 
 # led1 = io.LED(17)
