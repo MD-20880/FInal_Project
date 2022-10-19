@@ -41,7 +41,8 @@ while True:
             curposx -= 1
         elif event.direction == 'right':
             curposx += 1
-
+        
+        board[curposy*WIDTH+curposx] = [0,0,0]
         curposx = curposx % 8
         curposy = curposy % 8
         board[curposy*WIDTH+curposx] = [255,255,255]
