@@ -36,10 +36,7 @@ while True:
     gyro = sense.get_gyroscope()
     # get accelerometer
     accel = sense.get_accelerometer()
-    # get magnetometer
-    mag = sense.get_magnetometer()
-    # get raw data
-    raw = sense.get_raw()
+    
 
     # print data
     print("Temperature: {}".format(temp))
