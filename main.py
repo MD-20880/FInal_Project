@@ -33,10 +33,11 @@ sense.set_pixels(board)
 while True:
     
     for event in sense.stick.get_events():
+        sleep(0.3)
         board[curposy*WIDTH+curposx] = [0,0,0]
-        if event.direction == 'up':
+        if event.direction == 'down':
             curposy += 1
-        elif event.direction == 'down':
+        elif event.direction == 'up':
             curposy -= 1
         elif event.direction == 'left':
             curposx -= 1
