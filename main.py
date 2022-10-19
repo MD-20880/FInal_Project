@@ -22,9 +22,11 @@ def flashing(n : int) -> None:
 
 while True:
     board = [[0,0,0] for i in range(64)]
+    WIDTH = 8
+    HEIGHT = 8
     curposx = 4
     curposy = 4
-    board[curposx][curposy] = [255,255,255]
+    board[curposy*WIDTH+curposx] = [255,255,255]
     
     for event in sense.stick.get_events():
         if event[0].direction == 'up':
@@ -38,7 +40,7 @@ while True:
 
         curposx = curposx % 8
         curposy = curposy % 8
-        board[curposx][curposy] = [255,255,255]
+        board[curposy*WIDTH+curposx] = [255,255,255]
 
 # led1 = io.LED(17)
 # led2 = io.LED(27)
