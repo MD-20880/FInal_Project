@@ -27,6 +27,7 @@ while True:
     curposx = 4
     curposy = 4
     board[curposy*WIDTH+curposx] = [255,255,255]
+    sense.set_pixels(board)
     
     for event in sense.stick.get_events():
         if event.direction == 'up':
@@ -41,6 +42,7 @@ while True:
         curposx = curposx % 8
         curposy = curposy % 8
         board[curposy*WIDTH+curposx] = [255,255,255]
+        sense.set_pixels(board)
 
 # led1 = io.LED(17)
 # led2 = io.LED(27)
