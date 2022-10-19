@@ -46,8 +46,7 @@ while True:
     print("Compass: {}".format(compass))
     print("Gyroscope: {}".format(gyro))
     print("Accelerometer: {}".format(accel))
-    print("Magnetometer: {}".format(mag))
-    print("Raw: {}".format(raw))
+    
 
     # flash LED panel for 1 second
     flashing(1)
