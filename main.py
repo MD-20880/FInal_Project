@@ -22,7 +22,42 @@ def flashing(n : int) -> None:
 
 
 while True:
-    sense.show_message("Hello World!", text_colour=[255,0,0], back_colour=[0,0,255])
+    # get temperature
+    temp = sense.get_temperature()
+    # get humidity
+    hum = sense.get_humidity()
+    # get pressure
+    press = sense.get_pressure()
+    # get orientation
+    orient = sense.get_orientation()
+    # get compass
+    compass = sense.get_compass()
+    # get gyroscope
+    gyro = sense.get_gyroscope()
+    # get accelerometer
+    accel = sense.get_accelerometer()
+    # get magnetometer
+    mag = sense.get_magnetometer()
+    # get raw data
+    raw = sense.get_raw()
+
+    # print data
+    print("Temperature: {}".format(temp))
+    print("Humidity: {}".format(hum))
+    print("Pressure: {}".format(press))
+    print("Orientation: {}".format(orient))
+    print("Compass: {}".format(compass))
+    print("Gyroscope: {}".format(gyro))
+    print("Accelerometer: {}".format(accel))
+    print("Magnetometer: {}".format(mag))
+    print("Raw: {}".format(raw))
+
+    # flash LED panel for 1 second
+    flashing(1)
+
+    # wait 1 second
+    sleep(1)
+    
         
 
 # led1 = io.LED(17)
