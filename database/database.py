@@ -4,13 +4,14 @@ import redis
 
 #
 
+class DBWrapper:
+    def __init__(self) -> None:
+        pass
 
-def build_redis_connection(host:str, port:int, db:int):
-    return redis.Redis(host='localhost', port=6379, db=0)
 
+def build_redis_connection()->redis.Redis:
+    return redis.StrictRedis(host='localhost', port=6379, db=0,decode_responses=True)
 
-
-db = build_redis_connection('localhost', 6379, 0)
 
 
 def testGenerateConteents(db:redis.Redis):
@@ -32,12 +33,9 @@ def testGenerateConteents(db:redis.Redis):
 
 
 def getTestData()->list:
-    
     db = build_redis_connection('localhost', 6379, 0)
     info1 =db.lrange("Device1:Temperature", 0, -1)
     info2 = db.lrange("Device2:Temperature", 0, -1)
     return [info1, info2]
 
-# data = getTestData()
-# print (data[0])
-# print (data[1])
+# 

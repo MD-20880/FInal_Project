@@ -4,33 +4,34 @@
 from dash import Dash, html, dcc
 import plotly.express as px
 import pandas as pd
-import database as db
-import matplotlib.pyplot as plt
+import database.database as database
+from RedisTestData import *
+from pprint import pprint
 
 app = Dash(__name__)
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 
-data = db.getTestData()
-
-info1 = data[0]
-info2 = data[1]
-
-print(str(info1[0],'utf-8'))
-
-info1Data = [float(str(i,'utf-8').split(":")[0]) for i in info1]
-info1Time = [float(str(i,'utf-8').split(":")[1]) for i in info1]
-
-print(info1Data)
+db = database.build_redis_connection()
+device = ["Device1"]
+parameters = ["TEMPERATURE","HUMIDITY","PRESSURE","COMPASS"]
+rawdataList = {}
+for d in device:
+    for p in parameters:
+        rawdataList[d+":"+p] = rawToTime(readList(d+":"+p,db))
+        
 
 
 df = pd.DataFrame({
-    "Time": info1Time,
-    "Data": info1Data
+    "Time": rawdataList["Device1:HUMIDITY"][1],
+    "Data": rawdataList["Device1:HUMIDITY"][0]
 })
 
 fig = px.line(df, x="Time", y="Data", title='A Line Plot')
+
+
+
 
 
 # df = pd.DataFrame({
@@ -56,4 +57,5 @@ app.layout = html.Div(children=[
 ])
 
 if __name__ == '__main__':
+    
     app.run_server(debug=True)

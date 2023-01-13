@@ -14,8 +14,8 @@ from time import time
 import configparser
 
 if not debug:
-    import Sensor
-    import RpiSensorHat
+    import Sensor.Sensor as Sensor
+    import Sensor.RpiSensorHat as RpiSensorHat
 
 
 

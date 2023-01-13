@@ -1,4 +1,4 @@
-import SensorEntity
+import Sensor.SensorEntity as SensorEntity
 import gpiozero as io
 from sense_hat import SenseHat
 
