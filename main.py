@@ -36,9 +36,19 @@ def init_sensors() -> list:
     sensorList.append(sensehatSensor)
 
 
+def loadConfig() ->dict:
+    config = configparser.ConfigParser()
+    config.read("conf.ini")
+    
+    
 
-
-config = configparser.ConfigParser()
-config.read("conf.ini")
-
-print(config["Default"])
+if __name__ == "__main__":
+    running = True
+    SensorList = init_sensors()
+    startSensorsLoop()
+    
+    while(running):
+        dataCollectionLoop()
+        frontEndDisplay()
+    
+    
